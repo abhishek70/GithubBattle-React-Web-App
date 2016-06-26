@@ -9,5 +9,4 @@ Steps after downloading the repo:
 
 
 References:
-
 <a href="http://courses.reactjsprogram.com/courses/reactjsfundamentals">React.js Program By Tyler McGinnis</a>
