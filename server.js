@@ -1,14 +1,23 @@
-var Webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require("./webpack.config.js");
-var compiler = Webpack(config);
-
-var bundler = new WebpackDevServer(compiler);
+// Initializing the require modules
+var express = require('express');
+var app = express();
 
 // Create Port
 const PORT = process.env.PORT || 8080;
 
+//Create Middleware for OpenWeather API (Https/Http)
+app.use(function (req, res, next){
+  if(req.headers['x-forwarded-proto'] === 'https') {
+    res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next();
+  }
+});
+
+// Serve from public folder
+app.use(express.static('dist'));
+
 // Creating Web Server
-bundler.listen(PORT, function () {
-  console.log('Bundling project, Web Server Starting at Port ' + PORT);
+app.listen(PORT, function(){
+  console.log('Express Server is started on Port ' + PORT);
 });
