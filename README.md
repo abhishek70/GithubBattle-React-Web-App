@@ -8,3 +8,6 @@ Steps after downloading the repo:
 3. Go to http://localhost:8080 to view the web app for development.
 
 
+References:
+
+<a href="http://courses.reactjsprogram.com/courses/reactjsfundamentals">React.js Program By Tyler McGinnis</a>
